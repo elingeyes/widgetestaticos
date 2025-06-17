@@ -81,6 +81,8 @@ class RegistrationFormScreen extends StatelessWidget{
                   color: primaryNavy,
                 ),
                 SizedBox(height: 12),
+
+
                 Text(
                   'Datos Personales',
                   style: TextStyle(
@@ -89,7 +91,10 @@ class RegistrationFormScreen extends StatelessWidget{
                     color: primaryNavy,
                   ),
                 ),
+
+
                 SizedBox(height: 8),
+
                 Text(
                   'Complete todos los campos requeridos',
                   style: TextStyle(
@@ -97,9 +102,44 @@ class RegistrationFormScreen extends StatelessWidget{
                     color: secondaryGray,
                   ),
                 ),
+
+
               ],
             ),
           ),
+//apartado un margen
+        SizedBox(height: 24,)
+          //otro contenedor
+
+          Container(
+            padding: EdgeInsets.all(24),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [
+                BoxShadow(
+                  color: secondaryGray.withOpacity(0.1),
+                  blurRadius: 10,
+                  offset: Offset(0, 4),
+                ),
+              ],
+            ),
+
+
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _buildSectionTitle('Información Básica', Icons.info_outline),
+
+                _buildTextField(
+                  label: 'Nombre Completo',
+                  hint: 'Ingrese su nombre completo',
+                  icon: Icons.person,
+                ),
+              ],
+            ),
+          ),
+
 
 
 
