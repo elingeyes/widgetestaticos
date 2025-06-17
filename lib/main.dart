@@ -1,14 +1,17 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'; //importado el paquete principal de dart
 
+//funcion principal que inicia la aplicaicon
 void main() {
   runApp(const MyApp());
 }
 
+//clase principal
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // Este widget es el principal en la aplicación
   @override
+  //el metodo build describe la interfaz del usuario
   Widget build(BuildContext context) {
     //el widget principal retornara la recopilacion y armado del formulario
     return MaterialApp(
@@ -44,10 +47,10 @@ class RegistrationFormScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //Scaffold lo que contendra
-    //el contenido
+    //es la estructura visual
     return Scaffold(
       backgroundColor: backgroundGray,
-      //declaracion del titulo para el formulario
+      //barra superior de la aplicaicon
       appBar: AppBar(
         title: Text(
           'Registro de Persona',
@@ -67,13 +70,14 @@ class RegistrationFormScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // Header con icono y título
+            // contenedor para el encabezado del formulario
             Container(
               padding: EdgeInsets.all(24),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(12),
                 boxShadow: [
+                  //sombra para dar profundidad
                   BoxShadow(
                     color: secondaryGray.withOpacity(0.1),
                     blurRadius: 10,
@@ -131,6 +135,7 @@ class RegistrationFormScreen extends StatelessWidget {
                   // Sección: Información Básica
                   _buildSectionTitle('Información Básica', Icons.info_outline),
 
+                  //campo para el nombre
                   _buildTextField(
                     label: 'Nombre Completo',
                     hint: 'Ingrese su nombre completo',
@@ -154,7 +159,7 @@ class RegistrationFormScreen extends StatelessWidget {
                   // Sección: Información Personal
                   _buildSectionTitle('Información Personal', Icons.person_outline),
 
-                  Row(
+                  Row( //widget row para organizar de forma horizontal
                     children: [
                       Expanded(
                         child: _buildTextField(
@@ -203,6 +208,7 @@ class RegistrationFormScreen extends StatelessWidget {
                   SizedBox(height: 32),
 
                   // Botones de acción
+                  //declaracion de la fila para el boton correspondiente
                   Row(
                     children: [
                       Expanded(
@@ -217,6 +223,7 @@ class RegistrationFormScreen extends StatelessWidget {
                             ),
                             elevation: 2,
                           ),
+
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
