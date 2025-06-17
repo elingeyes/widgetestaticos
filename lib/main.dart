@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget{
 }
 
 class RegistrationFormScreen extends StatelessWidget{
-//definicion de colores
+//paleta de colores
   static const Color primaryNavy = Color(0xFF1E3A8A);
   static const Color primaryLight = Color(0xFF3B82F6);
   static const Color primaryDark = Color(0xFF1E40AF);
@@ -42,6 +42,7 @@ class RegistrationFormScreen extends StatelessWidget{
     return Scaffold(
       backgroundColor: backgroundGray,
       appBar: AppBar(
+        //titulo del formulario
     title: Text('Registro de persona',
     style: TextStyle(
       color: Colors.white,
@@ -107,7 +108,7 @@ class RegistrationFormScreen extends StatelessWidget{
               ],
             ),
           ),
-//apartado un margen
+            //apartado un margen
         SizedBox(height: 24,)
           //otro contenedor
 
@@ -273,9 +274,39 @@ class RegistrationFormScreen extends StatelessWidget{
           ),
 
 
+          SizedBox(height: 16,),
 
+          //pien de pagina informacio
 
+          Container(
+            padding: EdgeInsets.all(16),
+                 decoration: BoxDecoration(
+                 color: primaryNavy.withOpacity(0.05),
+                 borderRadius: BorderRadius.circular(8),
+                 border: Border.all(color: primaryNavy.withOpacity(0.2)),
+              ),
 
+              child: Row(
+                 children: [
+                       Icon(
+                          Icons.info,
+                          color: primaryNavy,
+                          size: 20,
+              ),
+                  SizedBox(width: 12),
+                  Expanded(
+                  child: Text(
+                         'Todos los datos proporcionados serán tratados de forma confidencial.',
+                     style: TextStyle(
+                    color: primaryNavy,
+                     fontSize: 12,
+              ),
+              ),
+              ),
+              ],
+              ),
+            ),
+          )
         ],
         ),
       ),
