@@ -194,6 +194,80 @@ class RegistrationFormScreen extends StatelessWidget{
 
                 SizedBox(height: 24),
 
+                // Sección: Comentarios
+                _buildSectionTitle('Comentarios Adicionales', Icons.comment),
+
+                _buildTextField(
+                  label: 'Comentarios',
+                  hint: 'Escriba cualquier información adicional...',
+                  icon: Icons.notes,
+                  maxLines: 4,
+                ),
+
+                SizedBox(height: 32),
+
+                // Botones de acción
+                Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: primaryNavy,
+                          foregroundColor: Colors.white,
+                          padding: EdgeInsets.symmetric(vertical: 16),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          elevation: 2,
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.save, size: 20),
+                            SizedBox(width: 8),
+                            Text(
+                              'Registrar',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 12),
+                    Expanded(
+                      child: OutlinedButton(
+                        onPressed: () {},
+                        style: OutlinedButton.styleFrom(
+                          foregroundColor: secondaryGray,
+                          side: BorderSide(color: secondaryGray),
+                          padding: EdgeInsets.symmetric(vertical: 16),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.clear, size: 20),
+                            SizedBox(width: 8),
+                            Text(
+                              'Limpiar',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+
               ],
             ),
           ),
