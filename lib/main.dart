@@ -37,4 +37,80 @@ class RegistrationFormScreen extends StatelessWidget{
   static const Color grayDark = Color(0xFF374151);
   static const Color backgroundGray = Color(0xFFF9FAFB);
 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: backgroundGray,
+      appBar: AppBar(
+    title: Text('Registro de persona',
+    style: TextStyle(
+      color: Colors.white,
+      fontWeight: FontWeight.bold,
+      fontSize: 20,
+    ),
+    ),
+        backgroundColor: primaryNavy,
+        elevation: 2,
+        centerTitle: true,
+      ),
+
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          //icono y titulo
+          Container(
+            padding: EdgeInsets.all(24),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [
+                BoxShadow(
+                  color: secondaryGray.withOpacity(0.1),
+                  blurRadius: 10,
+                  offset: Offset(0, 4),
+                ),
+              ],
+            ),
+            child: Column(
+              children: [
+                Icon(
+                  Icons.person_add,
+                  size: 48,
+                  color: primaryNavy,
+                ),
+                SizedBox(height: 12),
+                Text(
+                  'Datos Personales',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: primaryNavy,
+                  ),
+                ),
+                SizedBox(height: 8),
+                Text(
+                  'Complete todos los campos requeridos',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: secondaryGray,
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+
+
+
+        ],
+        ),
+      ),
+
+
+
+
+    );
+  }
 }
