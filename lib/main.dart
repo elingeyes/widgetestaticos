@@ -152,6 +152,48 @@ class RegistrationFormScreen extends StatelessWidget{
 
                 SizedBox(height: 24),
 
+                // Información Personal
+                _buildSectionTitle('Información Personal', Icons.person_outline),
+
+
+                Row(
+                  children: [
+                    Expanded(
+                      child: _buildTextField(
+                        label: 'Edad',
+                        hint: '25',
+                        icon: Icons.cake,
+                      ),
+                    ),
+                    SizedBox(width: 16),
+                    Expanded(
+                      child: _buildDropdown(),
+                    ),
+                  ],
+                ),
+
+
+                _buildTextField(
+                  label: 'Dirección',
+                  hint: 'Calle, Ciudad, País',
+                  icon: Icons.location_on,
+                  maxLines: 2,
+                ),
+
+
+                SizedBox(height: 24),
+
+                // Sección: Preferencias
+                _buildSectionTitle('Preferencias', Icons.settings),
+
+                _buildCheckboxSection(),
+
+                SizedBox(height: 16),
+
+                _buildRadioSection(),
+
+                SizedBox(height: 24),
+
               ],
             ),
           ),
