@@ -136,6 +136,22 @@ class RegistrationFormScreen extends StatelessWidget{
                   hint: 'Ingrese su nombre completo',
                   icon: Icons.person,
                 ),
+
+                _buildTextField(
+                  label: 'Correo Electrónico',
+                  hint: 'ejemplo@correo.com',
+                  icon: Icons.email,
+                ),
+
+                _buildTextField(
+                  label: 'Teléfono',
+                  hint: '+591 62650217',
+                  icon: Icons.phone,
+                ),
+
+
+                SizedBox(height: 24),
+
               ],
             ),
           ),
