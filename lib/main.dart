@@ -10,8 +10,10 @@ class MyApp extends StatelessWidget {
   // Este widget es el principal en la aplicación
   @override
   Widget build(BuildContext context) {
+    //el widget principal retornara la recopilacion y armado del formulario
     return MaterialApp(
       title: 'Formulario de Registro',
+      //deficion del tema para el formulario
       theme: ThemeData(
         primarySwatch: Colors.blue,
         primaryColor: Color(0xFF1E3A8A), // Azul Marino
@@ -22,11 +24,13 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: RegistrationFormScreen(),
+      //eliminacion del banner al otorgar el valor de false
       debugShowCheckedModeBanner: false,
     );
   }
 }
 
+//creacion de la clase donde tendra sus constantes correspondientes
 class RegistrationFormScreen extends StatelessWidget {
   // Definición de colores para la paleta monocromática
   static const Color primaryNavy = Color(0xFF1E3A8A);
@@ -39,8 +43,11 @@ class RegistrationFormScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //Scaffold lo que contendra
+    //el contenido
     return Scaffold(
       backgroundColor: backgroundGray,
+      //declaracion del titulo para el formulario
       appBar: AppBar(
         title: Text(
           'Registro de Persona',
@@ -54,6 +61,7 @@ class RegistrationFormScreen extends StatelessWidget {
         elevation: 2,
         centerTitle: true,
       ),
+      //body al igual que en web contendra el contenido
       body: SingleChildScrollView(
         padding: EdgeInsets.all(20.0),
         child: Column(
