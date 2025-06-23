@@ -305,4 +305,63 @@ class RegistrationFormScreen extends StatelessWidget {
       ],
     );
   }
+
+  //creacion de widget chekbox para seleccionar
+  Widget _buildCheckboxSection() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        //definicion del texto para la seccion de check
+        Text(
+          'Intereses (seleccione todos los que apliquen):',
+          style: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w600,
+            color: grayDark,
+          ),
+        ),
+        SizedBox(height: 12),
+        //contenedor del contenido de la seccion
+        Container(
+          padding: EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            color: backgroundGray,
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(color: grayLight),
+          ),
+          child: Column(
+            //definicion de los elementos seleccionable
+            children: [
+              _buildCheckboxTile('Tecnología', Icons.computer),
+              _buildCheckboxTile('Deportes', Icons.sports_soccer),
+              _buildCheckboxTile('Música', Icons.music_note),
+              _buildCheckboxTile('Lectura', Icons.book),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  //definicion del encabezado para la seccion de check
+  Widget _buildCheckboxTile(String title, IconData icon) {
+    return CheckboxListTile(
+      title: Row(
+        //definicion para el estilo
+        children: [
+          Icon(icon, size: 20, color: secondaryGray),
+          SizedBox(width: 8),
+          Text(
+            title,
+            style: TextStyle(color: grayDark),
+          ),
+        ],
+      ),
+      value: false,
+      onChanged: (bool? value) {},
+      activeColor: primaryNavy,
+      dense: true,
+      contentPadding: EdgeInsets.zero,
+    );
+  }
 }
