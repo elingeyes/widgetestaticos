@@ -41,7 +41,7 @@ class RegistrationFormScreen extends StatelessWidget {
   static const Color primaryDark = Color(0xFF1E40AF);
   static const Color secondaryGray = Color(0xFF6B7280);
   static const Color grayLight = Color(0xFF9CA3AF);
-  static const Color grayDart = Color(0xFF374151);
+  static const Color grayDark = Color(0xFF374151);
   static const Color backgroundGray = Color(0xFFF9FAFB);
 
   //declaramos el inicio de la app q contendra todos los elementos
@@ -89,7 +89,7 @@ class RegistrationFormScreen extends StatelessWidget {
                   BoxShadow(
                     color: secondaryGray.withOpacity(0.1),
                     blurRadius: 10,
-                    offset: Offset(0,4),
+                    offset: Offset(0, 4),
                   ),
                 ],
               ),
@@ -121,12 +121,138 @@ class RegistrationFormScreen extends StatelessWidget {
                       fontSize: 14,
                       color: secondaryGray,
                     ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 24),
+            //formulario principal
+            Container(
+              //contenedor del formulario
+              padding: EdgeInsets.all(24),
+              //decoracion del forumario
+              decoration: BoxDecoration(
+                //color blanco como principal
+                color: Colors.white,
+                //borde redondeados
+                borderRadius: BorderRadius.circular(12),
+                //box shadow para darle profundidad como si fuera un elemento flotante
+                boxShadow: [
+                  BoxShadow(
+                    color: secondaryGray.withOpacity(0.1),
+                    blurRadius: 10,
+                    offset: Offset(0, 4),
+                  ),
+                ],
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                //declaracion de los elementos hijos dentro del formulario
+                children: [
+                  _buildSectionTitle('Informacion basica', Icons.info_outline),
+
+                  //creacion del elemento para nombre
+                  _buildTextField(
+                    label: 'Nombre Completo',
+                    hint: 'Ingrese su nombre completo',
+                    icon: Icons.person,
+                  ),
+
+                  //creacion del elemento para correo electronico
+                  _buildTextField(
+                    label: 'Correo Electronico',
+                    hint: 'ejemplo@correo.com',
+                    icon: Icons.email,
                   )
                 ],
               ),
             )
           ],
         ),
+      ),
+    );
+  }
+
+  //declaracion de los elementos para ser reutilizables en el formulario
+  Widget _buildSectionTitle(String title, IconData icon) {
+    return Padding(
+      padding: EdgeInsets.only(bottom: 16),
+      child: Row(
+        //declaracion de elemento hijo
+        children: [
+          Icon(
+            icon,
+            color: primaryNavy,
+            size: 20,
+          ),
+          SizedBox(width: 8),
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: primaryNavy,
+            ),
+          ),
+          Expanded(
+            child: Container(
+              margin: EdgeInsets.only(left: 12),
+              height: 1,
+              color: grayLight,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  //declaracion del widget generico para texto
+  Widget _buildTextField({
+    //declaracion de elementos necesarios para el widget
+    required String label,
+    required String hint,
+    required IconData icon,
+    int maxLines = 1,
+  }) {
+    //creacion del elemento de retorno
+    return Padding(
+      padding: EdgeInsets.only(bottom: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        //declaracion del elemento
+        children: [
+          Text(
+            label,
+            style: TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w600,
+              color: grayDark,
+            ),
+          ),
+          SizedBox(height: 8),
+          //creacion del container que tendra los elementos
+          Container(
+            decoration: BoxDecoration(
+              color: backgroundGray,
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(color: grayLight),
+            ),
+            //elemento hijo con los estilos
+            child: TextField(
+              maxLines: maxLines,
+              decoration: InputDecoration(
+                hintText: hint,
+                hintStyle: TextStyle(color: grayLight),
+                prefixIcon: Icon(icon, color: secondaryGray),
+                border: InputBorder.none,
+                contentPadding: EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 12,
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
