@@ -47,7 +47,27 @@ class RegistrationFormScreen extends StatelessWidget {
   //declaramos el inicio de la app q contendra todos los elementos
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    //declaramos el return que sera la devolucion
+    //de la vista
+    return Scaffold(
+
+      backgroundColor: backgroundGray,
+      appBar: AppBar(
+        //declaracion del appBar el titulo de la app que se vera
+        title: Text(
+          'Registro de persona',
+          //definicion de estilo para la barra superior
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
+          ),
+        ),
+        backgroundColor: primaryNavy,
+        elevation: 2,
+        //centrado del titulo
+        centerTitle: true,
+      ),
+    );
   }
 }
