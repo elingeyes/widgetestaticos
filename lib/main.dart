@@ -181,15 +181,31 @@ class RegistrationFormScreen extends StatelessWidget {
                   Row(
                     //creacion del elemento hijo para edad en informacion personal
                     children: [
+                      //definicion para edad
                       Expanded(
+                        //llamando al widget textfield declarado lineas abajo
                           child: _buildTextField(
                               label: 'Edad',
                               hint: '25',
                               icon: Icons.cake,
-                          )
-                      )
+                          ),
+                      ),
+                      SizedBox(width: 16),
+                      Expanded(
+                        //llamando al widget dropdown el cual esta definio para genero
+                          child: _buildDropdown(),
+                      ),
                     ],
-                  )
+                  ),
+
+                  //creacion del nuevo campo con la definicion de direccion
+                  _buildTextField(
+                      label: 'Direccion',
+                      hint: 'Avenida, Barrio, Calle, Numero',
+                      icon: Icons.location_on,
+                      maxLines: 2,
+                  ),
+
                 ],
               ),
             )
