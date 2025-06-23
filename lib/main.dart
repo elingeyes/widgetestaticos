@@ -364,4 +364,55 @@ class RegistrationFormScreen extends StatelessWidget {
       contentPadding: EdgeInsets.zero,
     );
   }
+
+  //creacion de los radio buttom
+  Widget _buildRadioSection() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Nivel de experiencia en la tecnologia',
+          style: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w600,
+            color: grayDark,
+          ),
+        ),
+        SizedBox(height: 12),
+        Container(
+          padding: EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            color: backgroundGray,
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(color: grayLight),
+          ),
+          child: Column(
+            //declaracion de los elementos para radio buttom
+            children: [
+              _buildRadioTile('Principiante', 'beginer'),
+              _buildRadioTile('Intermedio', 'intermediante'),
+              _buildRadioTile('Avanzado', 'advancend'),
+            ],
+          ),
+        )
+      ],
+    );
+  }
+  //creacion del titulo
+  Widget _buildRadioTile(String title, String value){
+    return RadioListTile<String>(
+      //definicion
+      title: Text(
+        title,
+        style: TextStyle(color: grayDark),
+      ),
+      //valores y estilos
+      value: value,
+      groupValue: 'beginer',
+      onChanged: (String? value) {},
+      activeColor: primaryNavy,
+      dense: true,
+      contentPadding: EdgeInsets.zero,
+    );
+  }
 }
