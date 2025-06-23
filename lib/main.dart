@@ -219,7 +219,7 @@ class RegistrationFormScreen extends StatelessWidget {
       padding: EdgeInsets.only(bottom: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        //declaracion del elemento
+        //etiqueta del campo
         children: [
           Text(
             label,
@@ -229,15 +229,15 @@ class RegistrationFormScreen extends StatelessWidget {
               color: grayDark,
             ),
           ),
-          SizedBox(height: 8),
-          //creacion del container que tendra los elementos
+          SizedBox(height: 8), //espacio entre la etiqueta y el campo de texto
+          //creacion del container principal del texto para estelis
           Container(
             decoration: BoxDecoration(
               color: backgroundGray,
               borderRadius: BorderRadius.circular(8),
               border: Border.all(color: grayLight),
             ),
-            //elemento hijo con los estilos
+            //elemento hijo para la entrada del texto
             child: TextField(
               maxLines: maxLines,
               decoration: InputDecoration(
@@ -254,6 +254,55 @@ class RegistrationFormScreen extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  //widget para seleccion multiple
+  Widget _buildDropdown() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start, //alinea al inicio
+      children: [
+        //creacion de la etiqueta para genero
+        Text(
+          //texto del campo
+          'Genero',
+          //creacion de estilos
+          style: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w600,
+            color: grayDark,
+          ),
+        ),
+        SizedBox(height: 8),
+        //creacion del contenedor junto a sus estilos
+        Container(
+          width: double.infinity,
+          padding: EdgeInsets.symmetric(horizontal: 16),
+          decoration: BoxDecoration(
+            color: backgroundGray,
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(color: grayLight),
+          ),
+          //crecion del campo select con sus opciones
+          child: DropdownButton<String>(
+            isExpanded: true,
+            underline: SizedBox(),
+            hint: Text(
+              'Seleccionar',
+              style: TextStyle(color: grayLight),
+            ),
+            icon: Icon(Icons.arrow_drop_down, color: secondaryGray),
+            //declaracion de los campos que seran elegibles
+            items: ['Masculino', 'Femenino', 'Otro']
+                .map((String value) => DropdownMenuItem<String>(
+              value: value,
+              child: Text(value),
+            ))
+              .toList(),
+            onChanged: (String? value) {},
+          ),
+        )
+      ],
     );
   }
 }
