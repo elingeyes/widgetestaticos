@@ -112,6 +112,16 @@ class RegistrationFormScreen extends StatelessWidget {
                       color: primaryNavy,
                     ),
                   ),
+                  //texto de requisito
+                  SizedBox(height: 8),
+                  Text(
+                    'Complete todos los campos requeridos',
+                    //estilos del texto complementario
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: secondaryGray,
+                    ),
+                  )
                 ],
               ),
             )
