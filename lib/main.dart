@@ -68,6 +68,56 @@ class RegistrationFormScreen extends StatelessWidget {
         //centrado del titulo
         centerTitle: true,
       ),
+      body: SingleChildScrollView(
+        //declaramos el padding de la app
+        padding: EdgeInsets.all(24),
+        //creamos la columna q tendra la app
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            //formamos el contenedor de widgets
+            Container(
+              //padding del contenedor
+              padding: EdgeInsets.all(24),
+              //el estilo del widget
+              decoration: BoxDecoration(
+                //declaracion del estilo colores bordes
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12),
+                //estilo de sombra para darle sensacion de elevacion
+                boxShadow: [
+                  BoxShadow(
+                    color: secondaryGray.withOpacity(0.1),
+                    blurRadius: 10,
+                    offset: Offset(0,4),
+                  ),
+                ],
+              ),
+              //contenido del widget
+              child: Column(
+                children: [
+                  //icono que representa el widget
+                  Icon(
+                    Icons.person_add,
+                    size: 48,
+                    color: primaryNavy,
+                  ),
+                  SizedBox(height: 12),
+                  //titulo y su estilo del widget
+                  Text(
+                    'Datos Personales',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: primaryNavy,
+                    ),
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
