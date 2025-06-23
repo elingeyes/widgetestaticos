@@ -163,6 +163,32 @@ class RegistrationFormScreen extends StatelessWidget {
                     label: 'Correo Electronico',
                     hint: 'ejemplo@correo.com',
                     icon: Icons.email,
+                  ),
+
+                  _buildTextField(
+                      label: 'Telefono',
+                      hint: '+591 7131242',
+                      icon: Icons.phone
+                  ),
+
+                  //espacioado definido para continuar con la seccion
+                  SizedBox(height: 24),
+
+                  //seccion informacion personal
+                  _buildSectionTitle('Informacion persona', Icons.person_outline),
+
+                  //creacion de la nueva fila
+                  Row(
+                    //creacion del elemento hijo para edad en informacion personal
+                    children: [
+                      Expanded(
+                          child: _buildTextField(
+                              label: 'Edad',
+                              hint: '25',
+                              icon: Icons.cake,
+                          )
+                      )
+                    ],
                   )
                 ],
               ),
