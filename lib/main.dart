@@ -491,4 +491,39 @@ class RegistrationFormScreen extends StatelessWidget {
     );
   }
 
+//Crea una sección visual con tres opciones tipo radio button.
+//
+// El usuario podrá seleccionar solo una de las tres opciones: Principiante, Intermedio o Avanzado.
+  Widget _buildRadioSection() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Nivel de experiencia en tecnología:',
+          style: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w600,
+            color: grayDark,
+          ),
+        ),
+        SizedBox(height: 12),
+        Container(
+          padding: EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            color: backgroundGray,
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(color: grayLight),
+          ),
+          child: Column(
+            children: [
+              _buildRadioTile('Principiante', 'beginner'),
+              _buildRadioTile('Intermedio', 'intermediate'),
+              _buildRadioTile('Avanzado', 'advanced'),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
 }
