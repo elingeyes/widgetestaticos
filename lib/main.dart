@@ -240,6 +240,43 @@ class RegistrationFormScreen extends StatelessWidget {
                   //otorgamos un espaciado
                   SizedBox(height: 32),
 
+                  //creamos los botones de accion
+                  Row(
+                    children: [
+                      Expanded(
+                          child: ElevatedButton(
+                            //no tendra aun acciones
+                              onPressed: () {},
+                            //definimos los estilos del boton
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: primaryNavy,
+                                foregroundColor: Colors.white,
+                                padding: EdgeInsets.symmetric(vertical: 16),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                elevation: 2,
+                              ),
+                            //declaramos la fila que tendra el boton
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              //determinamos los elementos q tendra
+                              children: [
+                                Icon(Icons.save, size: 20),
+                                SizedBox(width: 8),
+                                Text(
+                                    'registrar',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                ),
+                              ],
+                            ),
+                          )
+                      )
+                    ],
+                  )
                 ],
               ),
             )
