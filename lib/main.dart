@@ -302,15 +302,52 @@ class RegistrationFormScreen extends StatelessWidget {
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,
                                     ),
-                                  )
+                                  ),
                                 ],
-                              )
-                          )
+                              ),
+                          ),
                       ),
                     ],
-                  )
+                  ),
                 ],
               ),
+            ),
+
+            //definimos un espacio para el siguiente widget
+            SizedBox(height: 16),
+            //creacion del footer informativo
+            Container(
+              padding: EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: primaryNavy.withOpacity(0.05),
+                borderRadius: BorderRadius.circular(8),
+                border: Border.all(color: primaryNavy.withOpacity(0.2)),
+              ),
+              //definimos los elementos que estaran en el widget
+              child: Row(
+                //contenedor que tiene lo q se vera en el widget
+                children: [
+                  //definimos un icono para el widget
+                  Icon(
+                    Icons.info,
+                    color: primaryNavy,
+                    size: 20,
+                  ),
+                  SizedBox(width: 12),
+                  //creamos el contenido que se vera
+                  Expanded(
+                    child: Text(
+                        'Todos los datos proporcionados seran tratados de forma confidencial.',
+                      //otorgamos el estilo correspondiente
+                      style: TextStyle(
+                        color:primaryNavy,
+                        fontSize: 12,
+                      ),
+                    ),
+                  )
+                ],
+              )
+
             )
           ],
         ),
