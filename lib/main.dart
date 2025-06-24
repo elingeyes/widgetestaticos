@@ -273,8 +273,40 @@ class RegistrationFormScreen extends StatelessWidget {
                                 ),
                               ],
                             ),
+                          ),
+                      ),
+                      //definimos un espacio para evitar choque de widget
+                      SizedBox(width: 12),
+                      Expanded(
+                          child: OutlinedButton(
+                            //definimos acciones de momento no tiene
+                              onPressed: () {},
+                              //definimos el estilo del boton
+                              style: OutlinedButton.styleFrom(
+                                foregroundColor: secondaryGray,
+                                side: BorderSide(color: secondaryGray),
+                                padding: EdgeInsets.symmetric(vertical: 16),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                //creamos los elementos que contiene el boton
+                                children: [
+                                  Icon(Icons.clear, size: 20),
+                                  SizedBox(width: 8),
+                                  Text(
+                                    'Limpiar',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  )
+                                ],
+                              )
                           )
-                      )
+                      ),
                     ],
                   )
                 ],
