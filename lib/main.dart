@@ -470,5 +470,25 @@ class RegistrationFormScreen extends StatelessWidget {
     );
   }
 
+//Esta función crea un checkbox personalizado con ícono y texto.
+  Widget _buildCheckboxTile(String title, IconData icon) {
+    return CheckboxListTile(
+      title: Row(
+        children: [
+          Icon(icon, size: 20, color: secondaryGray),
+          SizedBox(width: 8),
+          Text(
+            title,
+            style: TextStyle(color: grayDark),
+          ),
+        ],
+      ),
+      value: false,
+      onChanged: (bool? value) {},
+      activeColor: primaryNavy,
+      dense: true,
+      contentPadding: EdgeInsets.zero,
+    );
+  }
 
 }
