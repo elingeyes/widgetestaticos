@@ -436,4 +436,39 @@ class RegistrationFormScreen extends StatelessWidget {
     );
   }
 
+//Muestra un texto explicativo seguido de una caja con 4 opciones (checkboxes) donde el usuario puede seleccionar sus intereses.
+  Widget _buildCheckboxSection() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Intereses (seleccione todos los que apliquen):',
+          style: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w600,
+            color: grayDark,
+          ),
+        ),
+        SizedBox(height: 12),
+        Container(
+          padding: EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            color: backgroundGray,
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(color: grayLight),
+          ),
+          child: Column(
+            children: [
+              _buildCheckboxTile('Tecnología', Icons.computer),
+              _buildCheckboxTile('Deportes', Icons.sports_soccer),
+              _buildCheckboxTile('Música', Icons.music_note),
+              _buildCheckboxTile('Lectura', Icons.book),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+
 }
