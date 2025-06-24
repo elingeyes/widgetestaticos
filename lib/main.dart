@@ -392,4 +392,48 @@ class RegistrationFormScreen extends StatelessWidget {
   }
 
 
+
+//genera un campo desplegable de selección de género con estilo visual consistente, incluyendo borde redondeado, color personalizado y opciones fijas.
+  Widget _buildDropdown() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Género',
+          style: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w600,
+            color: grayDark,
+          ),
+        ),
+        SizedBox(height: 8),
+        Container(
+          width: double.infinity,
+          padding: EdgeInsets.symmetric(horizontal: 16),
+          decoration: BoxDecoration(
+            color: backgroundGray,
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(color: grayLight),
+          ),
+          child: DropdownButton<String>(
+            isExpanded: true,
+            underline: SizedBox(),
+            hint: Text(
+              'Seleccionar',
+              style: TextStyle(color: grayLight),
+            ),
+            icon: Icon(Icons.arrow_drop_down, color: secondaryGray),
+            items: ['Masculino', 'Femenino', 'Otro']
+                .map((String value) => DropdownMenuItem<String>(
+              value: value,
+              child: Text(value),
+            ))
+                .toList(),
+            onChanged: (String? value) {},
+          ),
+        ),
+      ],
+    );
+  }
+
 }
