@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';//libreria
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
+//se crea una paleta de colores para el formulario
 class RegistrationFormScreen extends StatelessWidget {
   static const Color primaryNavy = Color(0xFF1E3A8A);
   static const Color primaryLight = Color(0xFF3B82F6);
@@ -39,10 +39,10 @@ class RegistrationFormScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundGray,
-      appBar: AppBar(
-        title: Text(
+      appBar: AppBar(//definie la bara superior de la pantalla y crea la barra de navegacion
+        title: Text(//establece un tituloque se muestre en el centro
           'Registro de Persona',
-          style: TextStyle(
+          style: TextStyle(//aplica un estilo al texto
             color: Colors.white,
             fontWeight: FontWeight.bold,
             fontSize: 20,
@@ -526,4 +526,19 @@ class RegistrationFormScreen extends StatelessWidget {
     );
   }
 
+//Se usa como parte de una lista de opciones exclusivas (solo se puede seleccionar una
+  Widget _buildRadioTile(String title, String value) {
+    return RadioListTile<String>(
+      title: Text(
+        title,
+        style: TextStyle(color: grayDark),
+      ),
+      value: value,
+      groupValue: 'beginner',
+      onChanged: (String? value) {},
+      activeColor: primaryNavy,
+      dense: true,
+      contentPadding: EdgeInsets.zero,
+    );
+  }
 }
