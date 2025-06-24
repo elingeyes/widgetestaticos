@@ -526,4 +526,19 @@ class RegistrationFormScreen extends StatelessWidget {
     );
   }
 
+//Se usa como parte de una lista de opciones exclusivas (solo se puede seleccionar una
+  Widget _buildRadioTile(String title, String value) {
+    return RadioListTile<String>(
+      title: Text(
+        title,
+        style: TextStyle(color: grayDark),
+      ),
+      value: value,
+      groupValue: 'beginner',
+      onChanged: (String? value) {},
+      activeColor: primaryNavy,
+      dense: true,
+      contentPadding: EdgeInsets.zero,
+    );
+  }
 }
