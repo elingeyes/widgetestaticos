@@ -226,6 +226,19 @@ class RegistrationFormScreen extends StatelessWidget {
                   //damos un espaciado
                   SizedBox(height: 24),
 
+                  //seccion comentarios llamamos al widget para titulo de seccion
+                  _buildSectionTitle('Comentarios adicionales', Icons.comment),
+
+                  //realizamos llamada al widget de text y pasamos los parametros
+                  _buildTextField(
+                      label: 'COmentarios',
+                      hint: 'Escriba cualquier informacion adicional',
+                      icon: Icons.notes,
+                    maxLines: 4,
+                  ),
+
+                  //otorgamos un espaciado
+                  SizedBox(height: 32),
 
                 ],
               ),
