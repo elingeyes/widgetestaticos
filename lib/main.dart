@@ -206,6 +206,27 @@ class RegistrationFormScreen extends StatelessWidget {
                       maxLines: 2,
                   ),
 
+                  //damos un espaciado para no mezclar los widget
+                  SizedBox(height: 24),
+
+                  //seccion preferencias definido lineas abajo _buidSectionTitle
+                  //pasamos los parametros necesarios
+                  _buildSectionTitle('Preferencias', Icons.settings),
+
+
+                  //usamos el widget declarado lineas abajo
+                  _buildCheckboxSection(),
+
+                  //damos un espaciado
+                  SizedBox(height: 16),
+
+                  //llamamos al widget
+                  _buildRadioSection(),
+
+                  //damos un espaciado
+                  SizedBox(height: 24),
+
+
                 ],
               ),
             )
