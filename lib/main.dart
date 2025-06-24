@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
-class MyApp extends StatelessWidget{
+
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget{
       title: 'Formulario de registro',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        primaryColor: Color(0xFF1E3A8A), //color azul marino
+        primaryColor: Color(0xFF1E3A8A),
         colorScheme: ColorScheme.fromSeed(
           seedColor: Color(0xFF1E3A8A),
           secondary: Color(0xFF6B7280),
@@ -23,12 +23,10 @@ class MyApp extends StatelessWidget{
       home: RegistrationFormScreen(),
       debugShowCheckedModeBanner: false,
     );
-
   }
 }
 
-class RegistrationFormScreen extends StatelessWidget{
-//paleta de colores
+class RegistrationFormScreen extends StatelessWidget {
   static const Color primaryNavy = Color(0xFF1E3A8A);
   static const Color primaryLight = Color(0xFF3B82F6);
   static const Color primaryDark = Color(0xFF1E40AF);
@@ -42,278 +40,301 @@ class RegistrationFormScreen extends StatelessWidget{
     return Scaffold(
       backgroundColor: backgroundGray,
       appBar: AppBar(
-        //titulo del formulario
-    title: Text('Registro de persona',
-    style: TextStyle(
-      color: Colors.white,
-      fontWeight: FontWeight.bold,
-      fontSize: 20,
-    ),
-    ),
+        title: Text(
+          'Registro de Persona',
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
+          ),
+        ),
         backgroundColor: primaryNavy,
         elevation: 2,
         centerTitle: true,
       ),
 
+
       body: SingleChildScrollView(
         padding: EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          //icono y titulo
-          Container(
-            padding: EdgeInsets.all(24),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(12),
-              boxShadow: [
-                BoxShadow(
-                  color: secondaryGray.withOpacity(0.1),
-                  blurRadius: 10,
-                  offset: Offset(0, 4),
-                ),
-              ],
-            ),
-            child: Column(
-              children: [
-                Icon(
-                  Icons.person_add,
-                  size: 48,
-                  color: primaryNavy,
-                ),
-                SizedBox(height: 12),
-
-
-                Text(
-                  'Datos Personales',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
+          children: [
+            // Header con icono y título
+            Container(
+              padding: EdgeInsets.all(24),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [
+                  BoxShadow(
+                    color: secondaryGray.withOpacity(0.1),
+                    blurRadius: 10,
+                    offset: Offset(0, 4),
+                  ),
+                ],
+              ),
+              child: Column(
+                children: [
+                  Icon(
+                    Icons.person_add,
+                    size: 48,
                     color: primaryNavy,
                   ),
-                ),
-
-
-                SizedBox(height: 8),
-
-                Text(
-                  'Complete todos los campos requeridos',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: secondaryGray,
+                  SizedBox(height: 12),
+                  Text(
+                    'Datos Personales',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: primaryNavy,
+                    ),
                   ),
-                ),
-
-
-              ],
-            ),
-          ),
-            //apartado un margen
-        SizedBox(height: 24,)
-          //otro contenedor
-
-          Container(
-            padding: EdgeInsets.all(24),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(12),
-              boxShadow: [
-                BoxShadow(
-                  color: secondaryGray.withOpacity(0.1),
-                  blurRadius: 10,
-                  offset: Offset(0, 4),
-                ),
-              ],
-            ),
-
-
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _buildSectionTitle('Información Básica', Icons.info_outline),
-
-                _buildTextField(
-                  label: 'Nombre Completo',
-                  hint: 'Ingrese su nombre completo',
-                  icon: Icons.person,
-                ),
-
-                _buildTextField(
-                  label: 'Correo Electrónico',
-                  hint: 'ejemplo@correo.com',
-                  icon: Icons.email,
-                ),
-
-                _buildTextField(
-                  label: 'Teléfono',
-                  hint: '+591 62650217',
-                  icon: Icons.phone,
-                ),
-
-
-                SizedBox(height: 24),
-
-                // Información Personal
-                _buildSectionTitle('Información Personal', Icons.person_outline),
-
-
-                Row(
-                  children: [
-                    Expanded(
-                      child: _buildTextField(
-                        label: 'Edad',
-                        hint: '25',
-                        icon: Icons.cake,
-                      ),
+                  SizedBox(height: 8),
+                  Text(
+                    'Complete todos los campos requeridos',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: secondaryGray,
                     ),
-                    SizedBox(width: 16),
-                    Expanded(
-                      child: _buildDropdown(),
-                    ),
-                  ],
-                ),
-
-
-                _buildTextField(
-                  label: 'Dirección',
-                  hint: 'Calle, Ciudad, País',
-                  icon: Icons.location_on,
-                  maxLines: 2,
-                ),
-
-
-                SizedBox(height: 24),
-
-                // Sección: Preferencias
-                _buildSectionTitle('Preferencias', Icons.settings),
-
-                _buildCheckboxSection(),
-
-                SizedBox(height: 16),
-
-                _buildRadioSection(),
-
-                SizedBox(height: 24),
-
-                // Sección: Comentarios
-                _buildSectionTitle('Comentarios Adicionales', Icons.comment),
-
-                _buildTextField(
-                  label: 'Comentarios',
-                  hint: 'Escriba cualquier información adicional...',
-                  icon: Icons.notes,
-                  maxLines: 4,
-                ),
-
-                SizedBox(height: 32),
-
-                // Botones de acción
-                Row(
-                  children: [
-                    Expanded(
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: primaryNavy,
-                          foregroundColor: Colors.white,
-                          padding: EdgeInsets.symmetric(vertical: 16),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          elevation: 2,
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.save, size: 20),
-                            SizedBox(width: 8),
-                            Text(
-                              'Registrar',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 12),
-                    Expanded(
-                      child: OutlinedButton(
-                        onPressed: () {},
-                        style: OutlinedButton.styleFrom(
-                          foregroundColor: secondaryGray,
-                          side: BorderSide(color: secondaryGray),
-                          padding: EdgeInsets.symmetric(vertical: 16),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.clear, size: 20),
-                            SizedBox(width: 8),
-                            Text(
-                              'Limpiar',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-
-              ],
-            ),
-          ),
-
-
-          SizedBox(height: 16,),
-
-          //pien de pagina informacio
-
-          Container(
-            padding: EdgeInsets.all(16),
-                 decoration: BoxDecoration(
-                 color: primaryNavy.withOpacity(0.05),
-                 borderRadius: BorderRadius.circular(8),
-                 border: Border.all(color: primaryNavy.withOpacity(0.2)),
+                  ),
+                ],
               ),
+            ),
 
+            SizedBox(height: 24),
+
+            // Formulario principal
+            Container(
+              padding: EdgeInsets.all(24),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [
+                  BoxShadow(
+                    color: secondaryGray.withOpacity(0.1),
+                    blurRadius: 10,
+                    offset: Offset(0, 4),
+                  ),
+                ],
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Sección: Información Básica
+                  _buildSectionTitle('Información Básica', Icons.info_outline),
+
+                  _buildTextField(
+                    label: 'Nombre Completo',
+                    hint: 'Ingrese su nombre completo',
+                    icon: Icons.person,
+                  ),
+
+                  _buildTextField(
+                    label: 'Correo Electrónico',
+                    hint: 'ejemplo@correo.com',
+                    icon: Icons.email,
+                  ),
+
+                  _buildTextField(
+                    label: 'Teléfono',
+                    hint: '+1 234 567 8900',
+                    icon: Icons.phone,
+                  ),
+
+                  SizedBox(height: 24),
+
+                  // Sección: Información Personal
+                  _buildSectionTitle('Información Personal', Icons.person_outline),
+
+                  Row(
+                    children: [
+                      Expanded(
+                        child: _buildTextField(
+                          label: 'Edad',
+                          hint: '25',
+                          icon: Icons.cake,
+                        ),
+                      ),
+                      SizedBox(width: 16),
+                      Expanded(
+                        child: _buildDropdown(),
+                      ),
+                    ],
+                  ),
+
+                  _buildTextField(
+                    label: 'Dirección',
+                    hint: 'Calle, Ciudad, País',
+                    icon: Icons.location_on,
+                    maxLines: 2,
+                  ),
+
+                  SizedBox(height: 24),
+
+                  // Sección: Preferencias
+                  _buildSectionTitle('Preferencias', Icons.settings),
+
+                  _buildCheckboxSection(),
+
+                  SizedBox(height: 16),
+
+                  _buildRadioSection(),
+
+                  SizedBox(height: 24),
+
+                  // Sección: Comentarios
+                  _buildSectionTitle('Comentarios Adicionales', Icons.comment),
+
+                  _buildTextField(
+                    label: 'Comentarios',
+                    hint: 'Escriba cualquier información adicional...',
+                    icon: Icons.notes,
+                    maxLines: 4,
+                  ),
+
+                  SizedBox(height: 32),
+
+                  // Botones de acción
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: primaryNavy,
+                            foregroundColor: Colors.white,
+                            padding: EdgeInsets.symmetric(vertical: 16),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            elevation: 2,
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.save, size: 20),
+                              SizedBox(width: 8),
+                              Text(
+                                'Registrar',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 12),
+                      Expanded(
+                        child: OutlinedButton(
+                          onPressed: () {},
+                          style: OutlinedButton.styleFrom(
+                            foregroundColor: secondaryGray,
+                            side: BorderSide(color: secondaryGray),
+                            padding: EdgeInsets.symmetric(vertical: 16),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.clear, size: 20),
+                              SizedBox(width: 8),
+                              Text(
+                                'Limpiar',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+
+            SizedBox(height: 16),
+
+            // Footer informativo
+            Container(
+              padding: EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: primaryNavy.withOpacity(0.05),
+                borderRadius: BorderRadius.circular(8),
+                border: Border.all(color: primaryNavy.withOpacity(0.2)),
+              ),
               child: Row(
-                 children: [
-                       Icon(
-                          Icons.info,
-                          color: primaryNavy,
-                          size: 20,
-              ),
+                children: [
+                  Icon(
+                    Icons.info,
+                    color: primaryNavy,
+                    size: 20,
+                  ),
                   SizedBox(width: 12),
                   Expanded(
-                  child: Text(
-                         'Todos los datos proporcionados serán tratados de forma confidencial.',
-                     style: TextStyle(
-                    color: primaryNavy,
-                     fontSize: 12,
-              ),
-              ),
-              ),
-              ],
+                    child: Text(
+                      'Todos los datos proporcionados serán tratados de forma confidencial.',
+                      style: TextStyle(
+                        color: primaryNavy,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-          )
-        ],
+          ],
         ),
       ),
-
-
-
-
     );
   }
+
+
+  // Esta función construye un encabezado de sección en el formulario.
+  // Muestra un ícono, un texto como título y una línea divisoria a la derecha
+  // para separar visualmente las secciones del formulario.
+  Widget _buildSectionTitle(String title, IconData icon) {
+    return Padding(
+      // Aplica un espacio inferior de 16 píxeles para separar el título de lo siguiente
+      padding: EdgeInsets.only(bottom: 16),
+      child: Row(
+        children: [
+          // Ícono que representa la sección (por ejemplo, info, persona, ajustes, etc.)
+          Icon(
+            icon,
+            color: primaryNavy, // Color azul definido en la paleta
+            size: 20,
+          ),
+          // Espacio horizontal entre el ícono y el texto
+          SizedBox(width: 8),
+          // Título de la sección con estilo negrita y color azul
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: primaryNavy,
+            ),
+          ),
+          // Línea horizontal que se expande para completar el espacio restante
+          Expanded(
+            child: Container(
+              margin: EdgeInsets.only(left: 12),
+              height: 1,
+              color: grayLight,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+
+
 }
