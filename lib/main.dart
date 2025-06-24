@@ -336,5 +336,60 @@ class RegistrationFormScreen extends StatelessWidget {
   }
 
 
+  // Esta función genera un campo de texto personalizado con una etiqueta,
+  // un ícono y estilos definidos para el formulario.
+
+
+  Widget _buildTextField({
+    required String label,
+    required String hint,
+    required IconData icon,
+    int maxLines = 1,
+  }) {
+    return Padding(
+      // Espaciado inferior entre este campo y el siguiente
+      padding: EdgeInsets.only(bottom: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start, // Alinea a la izquierda
+        children: [
+          // Etiqueta del campo (título encima del campo de entrada)
+          Text(
+            label,
+            style: TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w600,
+              color: grayDark, // Color oscuro definido en la paleta
+            ),
+          ),
+          SizedBox(height: 8), // Espacio entre etiqueta y el campo
+
+
+          Container(
+            decoration: BoxDecoration(
+              color: backgroundGray, // Fondo
+              borderRadius: BorderRadius.circular(8), // Bordes
+              border: Border.all(color: grayLight),   // Borde
+            ),
+
+            // Campo de texto
+            child: TextField(
+              maxLines: maxLines, // Define cuántas líneas acepta el campo
+              decoration: InputDecoration(
+                hintText: hint, // Texto de sugerencia dentro del campo
+                hintStyle: TextStyle(color: grayLight),
+                prefixIcon: Icon(icon, color: secondaryGray), // Ícono a la izquierda
+                border: InputBorder.none, // Elimina borde por defecto del TextField
+                contentPadding: EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 12,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
 
 }
