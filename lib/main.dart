@@ -123,11 +123,27 @@ class RegistrationFormScreen extends StatelessWidget {
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
     // Sección: Información Básica
-// Encabezado del formulario con icono de persona,
-  Container(
-  padding: EdgeInsets.all(24),
 // Sección "Información Básica" con campos para nombre completo,
   _buildSectionTitle('Información Básica', Icons.info_outline),
+    _buildTextField(
+    label: 'Nombre Completo',
+    hint: 'Ingrese su nombre completo',
+    icon: Icons.person,
+    ),
+
+    _buildTextField(
+    label: 'Correo Electrónico',
+    hint: 'ejemplo@correo.com',
+    icon: Icons.email,
+    ),
+
+    _buildTextField(
+    label: 'Teléfono',
+    hint: '+1 234 567 8900',
+    icon: Icons.phone,
+    ),
+
+    SizedBox(height: 24),
 // Sección "Información Personal" que contiene campo edad,
   _buildSectionTitle('Información Personal', Icons.person_outline),
 
