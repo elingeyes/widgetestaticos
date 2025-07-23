@@ -103,7 +103,7 @@ class RegistrationFormScreen extends StatelessWidget {
 
             SizedBox(height: 24),
 
-            // Formulario principal
+            // Inicio del formulario orincipal
             Container(
               padding: EdgeInsets.all(24),
               decoration: BoxDecoration(
