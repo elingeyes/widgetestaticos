@@ -8,15 +8,35 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   // Punto de entrada de la aplicación Flutter.
 // La función main ejecuta el widget MyApp que contiene la configuración principal.
-  void main() {
-    runApp(const MyApp());
+  / Este widget es el principal en la aplicación
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Formulario de Registro',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        primaryColor: Color(0xFF1E3A8A), // Azul Marino
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Color(0xFF1E3A8A),
+          secondary: Color(0xFF6B7280), // Gray
+        ),
+        useMaterial3: true,
+      ),
+      home: RegistrationFormScreen(),
+      debugShowCheckedModeBanner: false,
+    );
   }
+}
+class RegistrationFormScreen extends StatelessWidget {
+  // Definición de colores para la paleta monocromática
+  static const Color primaryNavy = Color(0xFF1E3A8A);
+  static const Color primaryLight = Color(0xFF3B82F6);
+  static const Color primaryDark = Color(0xFF1E40AF);
+  static const Color secondaryGray = Color(0xFF6B7280);
+  static const Color grayLight = Color(0xFF9CA3AF);
+  static const Color grayDark = Color(0xFF374151);
+  static const Color backgroundGray = Color(0xFFF9FAFB);
 
-// MyApp es un widget sin estado que define el tema y la pantalla inicial de la app.
-  class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  }
 // Pantalla principal del formulario de registro con fondo gris claro.
 // Contiene un AppBar con título centrado y color azul marino,
 // y un cuerpo con scroll para el formulario.
