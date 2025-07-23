@@ -30,5 +30,8 @@ class MyApp extends StatelessWidget {
   padding: EdgeInsets.all(24),
 // Sección "Información Básica" con campos para nombre completo,
   _buildSectionTitle('Información Básica', Icons.info_outline),
+// Sección "Información Personal" que contiene campo edad,
+  _buildSectionTitle('Información Personal', Icons.person_outline),
+
 
 
