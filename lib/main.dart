@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
 // MyApp es un widget sin estado que define el tema y la pantalla inicial de la app.
   class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  ...
+
   }
 // Pantalla principal del formulario de registro con fondo gris claro.
 // Contiene un AppBar con título centrado y color azul marino,
@@ -25,4 +25,10 @@ class MyApp extends StatelessWidget {
   appBar: AppBar(
   title: Text(
   'Registro de Persona',
-  ...
+
+// Encabezado del formulario con icono de persona,
+// título "Datos Personales" y texto descriptivo.
+// Caja con borde redondeado y sombra para resaltar.
+  Container(
+  padding: EdgeInsets.all(24),
+
