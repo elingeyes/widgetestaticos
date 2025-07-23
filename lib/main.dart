@@ -25,10 +25,10 @@ class MyApp extends StatelessWidget {
   appBar: AppBar(
   title: Text(
   'Registro de Persona',
-
 // Encabezado del formulario con icono de persona,
-// título "Datos Personales" y texto descriptivo.
-// Caja con borde redondeado y sombra para resaltar.
   Container(
   padding: EdgeInsets.all(24),
+// Sección "Información Básica" con campos para nombre completo,
+  _buildSectionTitle('Información Básica', Icons.info_outline),
+
 
