@@ -17,3 +17,12 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   ...
   }
+// Pantalla principal del formulario de registro con fondo gris claro.
+// Contiene un AppBar con título centrado y color azul marino,
+// y un cuerpo con scroll para el formulario.
+  return Scaffold(
+  backgroundColor: backgroundGray,
+  appBar: AppBar(
+  title: Text(
+  'Registro de Persona',
+  ...
